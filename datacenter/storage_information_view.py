@@ -8,13 +8,11 @@ from datacenter.models import get_duration, format_duration
 
 def storage_information_view(request):
     non_closed_visits = []
-    entered_visitors = Visit.objects.filter(leaved_at=None)
-
-
-    for visitor in entered_visitors:
-        entered_at = timezone.localtime(visitor.entered_at)
-        duration = get_duration(visitor)
-        owner_passcard = visitor.passcard
+    entered_visits = Visit.objects.filter(leaved_at=None)
+    for visit in entered_visits:
+        entered_at = timezone.localtime(visit.entered_at)
+        duration = get_duration(visit)
+        owner_passcard = visit.passcard
         non_closed_visits.append(
             {
                 'who_entered': owner_passcard,
