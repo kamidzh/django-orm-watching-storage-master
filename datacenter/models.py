@@ -37,7 +37,7 @@ def is_visit_long(duration, minutes=60):
 
 def get_duration(visit):
     entered_at = timezone.localtime(visit.entered_at)
-    if visit.leaved_at == None:
+    if not visit.leaved_at:
         now = timezone.localtime(timezone.now())
         duration = now - entered_at
     else:
