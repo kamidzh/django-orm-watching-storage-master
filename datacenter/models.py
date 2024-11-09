@@ -29,7 +29,8 @@ class Visit(models.Model):
                 if self.leaved_at else 'not leaved'
             )
         )
-    
+
+
 def is_visit_long(duration, minutes=60):
     duration_min = duration.total_seconds() // 60
     return duration_min > minutes
