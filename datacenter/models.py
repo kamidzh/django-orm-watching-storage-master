@@ -2,6 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 
+SECONDS_IN_ONE_MINUTE = 60
+SECONDS_IN_ONE_HOUR = 3600
+
+
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -32,8 +36,7 @@ class Visit(models.Model):
 
 
 def is_visit_long(duration, minutes=60):
-    seconds_in_one_minute = 60
-    duration_min = duration.total_seconds() // seconds_in_one_minute
+    duration_min = duration.total_seconds() // SECONDS_IN_ONE_MINUTE
     return duration_min > minutes
 
 
@@ -50,9 +53,7 @@ def get_duration(visit):
 
 def format_duration(duration):
     total_seconds = int(duration.total_seconds())
-    seconds_in_one_hour = 3600
-    seconds_in_one_minute = 60
-    hours = total_seconds // seconds_in_one_hour
-    minutes = (total_seconds % seconds_in_one_hour) // seconds_in_one_minute
-    seconds = total_seconds % seconds_in_one_minute
+    hours = total_seconds // SECONDS_IN_ONE_HOUR
+    minutes = (total_seconds % SECONDS_IN_ONE_HOUR) // SECONDS_IN_ONE_MINUTE
+    seconds = total_seconds % SECONDS_IN_ONE_MINUTE
     return f'{hours}:{minutes}:{seconds}'
