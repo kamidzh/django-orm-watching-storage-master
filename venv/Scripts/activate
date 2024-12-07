@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Asus\Desktop\django-orm-watching-storage-master\venv"
+VIRTUAL_ENV="C:\Users\Asus\Desktop\programming\django-orm-watching-storage-master\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

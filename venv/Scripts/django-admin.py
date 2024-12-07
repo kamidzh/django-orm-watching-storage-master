@@ -1,4 +1,4 @@
-#!C:\Users\Asus\Desktop\django-orm-watching-storage-master\venv\Scripts\python.exe
+#!C:\Users\Asus\Desktop\programming\django-orm-watching-storage-master\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
